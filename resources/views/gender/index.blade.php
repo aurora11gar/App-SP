@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universe Table</title>
+    <title>Genders Table</title>
 </head>
 <body>
-        <h1>Universe</h1>
+        <h1>Genders Table</h1>
 
         <hr>
 
-        <a href="{{ route('universes.create') }}">Create a new Universe</a>
+        <a href="{{ route('gender.create') }}"> Add a new Gender</a>
 
         <hr>
 
@@ -29,7 +29,7 @@
 
             <tbody>
 
-            @foreach($universes as $item)
+            @foreach($gender as $item)
 
                 <tr>
 
@@ -39,11 +39,11 @@
 
                 <td>
 
-                <a href = "{{route ('universes.show',$item->id)}}">Show</a>
+                <a href = "{{route ('gender.show',$item->id)}}">Show</a>
 
-                <a href = "{{route ('universes.edit',$item->id)}}">Edit</a>
+                <a href = "{{route ('gender.edit',$item->id)}}">Edit</a>
 
-                <form action="{{ route('universes.destroy', $item->id) }}" method="post">
+                <form action="{{ route('gender.destroy', $item->id) }}" method="post">
 
                         @csrf
 

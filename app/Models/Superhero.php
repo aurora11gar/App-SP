@@ -7,6 +7,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class Superhero extends Model
 {
-   use HasFactory;
-   protected $table = "superheroes"; //
+    use HasFactory;
+
+    public function universe()
+    {
+        return $this->belongsTo(Universe::class);
+    }
+
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class);
+    }
+    
+    protected $table = "superheroes";
+
+    protected $fillable = [
+
+        'gender_id',
+        'real_name',
+        'universe_id',
+        'name',
+        'picture'
+
+    ];
+
+    
+    
 }

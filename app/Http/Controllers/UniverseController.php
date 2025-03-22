@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Universe;
 
@@ -14,6 +13,7 @@ class UniverseController extends Controller
     {
         $universes = Universe::all();
         return view('universes.index',compact('universes'));
+
     }
 
     /**
@@ -21,7 +21,7 @@ class UniverseController extends Controller
      */
     public function create()
     {
-       return view('universes.create');
+        return view('universes.create');
     }
 
     /**
@@ -29,15 +29,11 @@ class UniverseController extends Controller
      */
     public function store(Request $request)
     {
-    
-        Universe::create([
-
+       Universe::create([
         'name' => $request ->name,
+       ]);
 
-        ]);
-
-        return to_route('universes.index');
-
+       return to_route('universes.index');
     }
 
     /**
@@ -45,7 +41,11 @@ class UniverseController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+    $universe = Universe::findOrFail($id);
+    
+    return view('universes.show', compact('universe'));
+
     }
 
     /**
@@ -53,7 +53,8 @@ class UniverseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $universe = Universe::findOrFail($id);
+        return view('universes.edit', compact('universe'));
     }
 
     /**
@@ -61,14 +62,22 @@ class UniverseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $universe = Universe::find($id);
+        $universe->update([
+            'name' => $request ->name,
+        ]);
+
+        return to_route ('universes.index');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $universe = Universe::find($id);
+        $universe -> delete();
+        return to_route('universes.index');
     }
 }
