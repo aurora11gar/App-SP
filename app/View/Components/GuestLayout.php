@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Hash;
+
 
 class GuestLayout extends Component
 {
