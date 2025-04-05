@@ -1,32 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gender</title>
-</head>
-<body>
-<h1>Genders <Table></Table></h1>
+@extends('layouts.main')
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-            </tr>
-        </thead>
+@section('title', 'Gender Details')
 
-        <tbody>
-            <tr>
-                <td>{{$gender->id}}</td>
-                <td>{{$gender->name}}</td>
-            </tr>
-        </tbody>
-    </table>
+@section('content')
+    <h1>Gender Details</h1>
 
-    <br>
+    <p><strong>ID:</strong> {{ $gender->id }}</p>
+    <p><strong>Name:</strong> {{ $gender->name }}</p>
 
     <a href="{{ route('gender.index') }}">Back to List</a>
-
-</body>
-</html>
+@endsection

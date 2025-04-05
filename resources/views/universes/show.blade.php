@@ -1,37 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universes</title>
-</head>
+@extends('layouts.main')
 
-<body>
+@section('title', 'SuperHero Details')
 
-<h1>Universes Table</h1>
+@section('content')
+    <h1>SuperHero Details</h1>
 
-<table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-            </tr>
-        </thead>
+    <p><strong>ID:</strong> {{ $superhero->id }}</p>
+    <p><strong>Name:</strong> {{ $superhero->name }}</p>
+    <p><strong>Real Name:</strong> {{ $superhero->real_name }}</p>
+    <p><strong>Gender:</strong> {{ $superhero->gender->name ?? 'N/A' }}</p>
+    <p><strong>Universe:</strong> {{ $superhero->universe->name ?? 'N/A' }}</p>
+    <p><strong>Picture:</strong></p>
+    @if(filter_var($superhero->picture, FILTER_VALIDATE_URL))
+        <img src="{{ $superhero->picture }}" alt="{{ $superhero->name }}" width="200">
+    @else
+        {{ $superhero->picture }}
+    @endif
 
-        <tbody>
-            <tr>
-                <td>{{$universe->id}}</td>
-                
-                <td>{{$universe->name}}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <br>
-
-    <a href="{{ route('universes.index') }}">Back to List</a>
-
-
-</body>
-
-</html>
+    <a href="{{ route('superheroes.index') }}">Back to List</a>
+@endsection
