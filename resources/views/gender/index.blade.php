@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($genders as $item)
+            @foreach($gender as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>

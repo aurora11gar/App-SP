@@ -1,12 +1,26 @@
 @extends('layouts.main')
-
-@section('title', 'Gender Details')
+@section('title', 'Show Gender')
 
 @section('content')
-    <h1>Gender Details</h1>
+    <h1>Gender Detail</h1>
 
-    <p><strong>ID:</strong> {{ $gender->id }}</p>
-    <p><strong>Name:</strong> {{ $gender->name }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{ $gender->id }}</td>
+                <td>{{ $gender->name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
 
     <a href="{{ route('gender.index') }}">Back to List</a>
 @endsection
