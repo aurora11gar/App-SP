@@ -6,9 +6,7 @@ use App\Http\Controllers\GenderController;
 use App\Http\Controllers\UniverseController;
 use App\Http\Controllers\GeneralController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\uApi;
-use App\Http\Controllers\genApi;
-use App\Http\Controllers\spApi;
+
 
 
 Route::get('/', function () {
